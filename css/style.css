@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: #202123;
+}
+
+.nav-link {
+    position: relative;
+}
+.nav-link::after {
+    transition: all 0.2s;
+    content: '';
+    opacity: 0;
+    height: 2px;
+    width: 100%;
+    background-color: greenyellow;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.nav-link:hover::after{
+    opacity: 1;
+}
+#ni_tickets:hover {
+    color: rgb(6, 143, 6) !important;
+    animation: ease 0.2s;
+}
+.c-item{
+    height: 550px;
+}
+.c-img{
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+}
+.carousel-caption{
+    text-align: end;
+    margin-bottom: 2rem;
+}
+footer {
+    background-color: #0a497b;
+}
