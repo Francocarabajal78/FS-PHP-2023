@@ -32,7 +32,7 @@
                         <a class="nav-link" href="#inscripcion">Conviértete en orador</a>
                       </li>
                       <li class="nav-item green">
-                        <a href="#" class="nav-link text-success" id="ni_tickets">Comprar tickets</a>
+                        <a href="#formulario" class="nav-link text-success" id="ni_tickets">Comprar tickets</a>
                       </li>
                     </ul>
                   </div>
@@ -77,36 +77,49 @@
       </div>
     </section>
     <section>
+      <a name="formulario"></a>
       <div class="container d-flex align-items-center flex-column">
         <div class="container text-center my-3">
           <h6 class="text-black-50">VENTA</h6>
           <h2>VALOR DE TICKET: $200</h2>
         </div>
-        <form action="" id="formulario">
+        <form action="" id="formulario" class="needs-validation" novalidate>
           <div class="row">
             <div class="col-6">
-              <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+              <input type="text" class="form-control" id="Nombre" placeholder="Nombre" required>
+              <div class="invalid-feedback">
+                Por favor complete este campo.
+              </div>
             </div>
             <div class="col-6">
-              <input type="text" class="form-control" id="apellido" placeholder="Apellido">
+              <input type="text" class="form-control" id="Apellido" placeholder="Apellido" required>
+              <div class="invalid-feedback">
+                Por favor complete este campo.
+              </div>
             </div>
           </div>
           <div class="row">
             <div class="col-12 my-3">
               <div class="input-group has-validation">
-                <input type="text" class="form-control" id="correo" aria-describedby="inputGroupPrepend" placeholder="Correo">
+                <input type="text" class="form-control" id="Correo" aria-describedby="inputGroupPrepend" placeholder="Correo" required>
+                <div class="invalid-feedback">
+                  Por favor escriba un correo.
+                </div>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-6">
               <label for="Cantidad" class="form-label">Cantidad</label>
-              <input type="text" class="form-control" id="Cantidad" placeholder="Cantidad">
+              <input type="text" class="form-control" id="Cantidad" placeholder="Cantidad" required>
+              <div class="invalid-feedback">
+                Por favor escriba una cantidad.
+              </div>
             </div>
             <div class="col-6">
               <label for="categorias">Categoría</label>              
-                <select class="form-select mt-2" id="categorias">
-                  <option selected disabled value="">Seleccione una</option>
+                <select class="form-select mt-2" id="categorias" required>
+                  <option selected disabled value="" required>Seleccione una</option>
                   <option value="Estudiante">Estudiante</option>
                   <option value="Trainee">Trainee</option>
                   <option value="Junior">Junior</option>
@@ -119,15 +132,20 @@
           </div>
           <div class="row mt-3">
             <div class="col-12 my-3 p-3 bg-dark text-white rounded" id="total">
-              Total a pagar: $
+              Total a pagar: $0
             </div>
           </div>
           <div class="row">
             <div class="col-6">
-              <button type="submit" class="btn btn-danger col-12 my-3 p-2">Borrar</button>
+              <button type="button" class="btn btn-danger col-12 my-3 p-2" onclick="limpiarFormulario()">Borrar</button>
             </div>
             <div class="col-6">
-              <button type="button" class="btn btn-primary col-12 my-3 p-2" onclick="capturar()">Resumen</button>
+              <button type="button" class="btn btn-primary col-12 my-3 p-2" onclick="calcularPrecioTotal()">Resumen</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="my-3">
+              <button type="submit" id="enviar" class="btn btn-success p-2 col-12">Enviar</button>
             </div>
           </div>      
         </form>
@@ -173,58 +191,54 @@
     </footer>
     <script>
 
-      /*Validar el formulario
+      //Validar el formulario
       const forms = document.querySelectorAll('.needs-validation')
       Array.from(forms).forEach(form => {
         form.addEventListener('submit', event => {
+          let validacionSelect = document.querySelector("#categorias");
           if (!form.checkValidity()) {
             event.preventDefault()
-            event.stopPropagation()
+            event.stopPropagation()            
           }
           form.classList.add('was-validated')
         }, false)
       })
-      */
 
-      //Reiniciar los campos del formulario cada vez que se envia
-      const form = document.getElementById("formulario");
-      form.addEventListener('submit', function(event){
-        event.preventDefault();
-        form.reset();
-        document.getElementById("total").innerHTML = 'Total a pagar: $';
-      })
 
-      const toastTrigger = document.getElementById('enviar')
-      const toastLiveExample = document.getElementById('liveToast')
-      if (toastTrigger) {
-        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-        toastTrigger.addEventListener('click', () => {
-          toastBootstrap.show()
-        })
-      }
-
-      function capturar(){
-        //captura los datos que le pasa el usuario a cantidad y categoria
+      function calcularPrecioTotal(){
+        //captura los datos de cantidad y categoría que le pasa el usuario
         let cantidad = document.getElementById("Cantidad").value;
         let categoria = document.querySelector("#categorias").value;
 
         //Sentencias condicionales que preguntan el tipo de categoria para hacer su respectivo descuento
         if(categoria == "Estudiante"){
           cantidad = (cantidad*200)-(cantidad*200*80/100);
+          console.log("El dinero total a pagar es: " + cantidad);
           document.getElementById("total").innerHTML = 'Total a pagar: $' + cantidad;
         }
         if(categoria == "Trainee"){
           cantidad = (cantidad*200)-(cantidad*200*50/100);
+          console.log("El dinero total a pagar es: " + cantidad);
           document.getElementById("total").innerHTML = 'Total a pagar: $' + cantidad;
         }
         if(categoria == "Junior"){
           cantidad = (cantidad*200)-(cantidad*200*15/100);
+          console.log("El dinero total a pagar es: " + cantidad);
           document.getElementById("total").innerHTML = 'Total a pagar: $' + cantidad;
         }
         if(categoria == "Sin descuento"){
           cantidad = cantidad*200;
+          console.log("El dinero total a pagar es: " + cantidad);
           document.getElementById("total").innerHTML = 'Total a pagar: $' + cantidad;
         }
+      }
+
+      //Limpiar el formulario
+      function limpiarFormulario(){
+        const form = document.getElementById("formulario");
+        event.preventDefault();
+        form.reset();
+        document.getElementById("total").innerHTML = 'Total a pagar: $0';
       }
 
       
