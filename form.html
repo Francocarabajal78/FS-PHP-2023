@@ -127,7 +127,7 @@
           </div>
           <div class="row">
             <div class="col-6">
-              <button type="button" class="btn btn-danger col-12 my-3 p-2" id="borrar">Borrar</button>
+              <button type="button" class="btn btn-danger col-12 my-3 p-2" id="borrar" onclick="limpiarFormulario()">Borrar</button>
             </div>
             <div class="col-6">
               <button type="button" class="btn btn-primary col-12 my-3 p-2" onclick="calcularPrecioTotal()">Resumen</button>
@@ -218,24 +218,12 @@
         cantidad: false,
       }
 
-      borrar.addEventListener('click', () => {
-        let entradas = document.querySelectorAll('#formulario input');
-        let p = document.querySelectorAll('#formulario p');
-        entradas.value = "";
-        formulario.reset();
-        p.innerHTML = "";
-        document.getElementById("total").innerHTML = 'Total a pagar: $0';
-      })
-
       //Limpia el formulario 
-      /*
       function limpiarFormulario(){
         const form = document.getElementById("formulario");
-        form.querySelectorAll('input').classList.add('border-secondary');
-        form.querySelectorAll('p').innerHTML = "";
+        form.reset();
         document.getElementById("total").innerHTML = 'Total a pagar: $0';
       }
-      */
 
       
       function validarFormulario(e){
