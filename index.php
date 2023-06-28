@@ -8,38 +8,11 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Final-Front</title>
 </head>
-<body>
-    <header>
-        <div class="container"> 
-            <nav class="navbar navbar-expand-lg navbar-dark">
-                <div class="container">
-                  <a class="navbar-brand col-3" href="#">
-                    <img src="./img/codoacodo.png" alt="logo" width="100px">
-                    Conf Bs As
-                  </a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">La conferencia</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#fecha">El lugar y la fecha</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#inscripcion">Conviértete en orador</a>
-                      </li>
-                      <li class="nav-item green">
-                        <a href="form.html" class="nav-link text-success" target="_blank" id="ni_tickets">Comprar tickets</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+<body>  
+  <?php
+    include("menu.php");
+  ?>
+    
     <section class="carusel">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -181,44 +154,9 @@
         </form>
       </div>
     </section>
-    <footer class="text-white pt-5 pb-4">
-
-      <div class="container text-center text-md-left">
-
-        <div class="row text-center text-md-left">
-          <div class="col-xs-12 col-md-6 col-lg-3">
-            <img src="./img/codoacodo.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-xs-12 col-md-6 col-lg-1 mx-auto mt-3">
-            <a class="text-white text-decoration-none" href="#">Preguntas frecuentes</a>
-          </div>
-          <div class="col-xs-12 col-md-6 col-lg-1 mx-auto mt-3">
-            <a class="text-white text-decoration-none" href="#">Contáctanos</a>
-          </div>
-          <div class="col-xs-12 col-md-6 col-lg-1 mx-auto mt-3">
-            <a class="text-white text-decoration-none" href="#">Prensa</a>
-          </div>
-          <div class="col-xs-12 col-md-6 col-lg-1 mx-auto mt-3">
-            <a class="text-white text-decoration-none" href="#">Conferencias</a>
-          </div>
-          <div class="col-xs-12 col-md-6 col-lg-1 mx-auto mt-3">
-            <a class="text-white text-decoration-none" href="#">Términos y condiciones</a>
-          </div>
-          <div class="col-xs-12 col-md-6 col-lg-1 mx-auto mt-3">
-            <a class="text-white text-decoration-none" href="#">Privacidad</a>
-          </div>
-          <div class="col-xs-12 col-md-6 col-lg-1 mx-auto mt-3">
-            <a class="text-white text-decoration-none" href="#">Estudiantes</a>
-          </div>
-        </div>
-        <hr class="mb-4">
-        <div class="row align-items-center">
-          <div class="col-md-7 col-lg-8">
-            <p>Copyright ©2022 Todos los derechos reservados</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <?php 
+      include("footer.php");
+     ?> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="scripts.js"></script>
 </body>

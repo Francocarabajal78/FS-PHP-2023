@@ -9,37 +9,9 @@
     <title>Formulario</title>
 </head>
 <body>
-    <header>
-        <div class="container"> 
-            <nav class="navbar navbar-expand-lg navbar-dark">
-                <div class="container">
-                  <a class="navbar-brand col-3" href="#">
-                    <img src="./img/codoacodo.png" alt="logo" width="100px">
-                    Conf Bs As
-                  </a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">La conferencia</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#fecha">El lugar y la fecha</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#inscripcion">Conviértete en orador</a>
-                      </li>
-                      <li class="nav-item green">
-                        <a href="#formulario" class="nav-link text-success" id="ni_tickets">Comprar tickets</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <?php 
+      include("menu.php");
+    ?>  
     <section class="grid-section mt-4" id="promociones">
       <div class="container mb-5">
         <div class="row gy-3">
@@ -83,7 +55,7 @@
           <h6 class="text-black-50">VENTA</h6>
           <h2>VALOR DE TICKET: $200</h2>
         </div>
-        <form action="" id="formulario" class="needs-validation" novalidate>
+        <form action="datosCompra.php" id="formulario" method="post" class="needs-validation" novalidate>
           <div class="row">
             <div class="col-6">
               <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
@@ -108,7 +80,7 @@
             </div>
             <div class="col-6">
               <label for="categorias">Categoría</label>              
-                <select class="form-select mt-2" id="categorias" required>
+                <select class="form-select mt-2" id="categorias" name="categoria" required>
                   <option selected disabled value="" required>Seleccione una</option>
                   <option value="Estudiante">Estudiante</option>
                   <option value="Trainee">Trainee</option>
@@ -141,44 +113,9 @@
         </form>
       </div>
     </section>
-    <footer class="text-white pt-5 pb-4">
-
-      <div class="container text-center text-md-left">
-
-        <div class="row text-center text-md-left">
-          <div class="col-xs-12 col-md-6 col-lg-3">
-            <img src="./img/codoacodo.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-xs-12 col-md-6 col-lg-1 mx-auto mt-3">
-            <a class="text-white text-decoration-none" href="#">Preguntas frecuentes</a>
-          </div>
-          <div class="col-xs-12 col-md-6 col-lg-1 mx-auto mt-3">
-            <a class="text-white text-decoration-none" href="#">Contáctanos</a>
-          </div>
-          <div class="col-xs-12 col-md-6 col-lg-1 mx-auto mt-3">
-            <a class="text-white text-decoration-none" href="#">Prensa</a>
-          </div>
-          <div class="col-xs-12 col-md-6 col-lg-1 mx-auto mt-3">
-            <a class="text-white text-decoration-none" href="#">Conferencias</a>
-          </div>
-          <div class="col-xs-12 col-md-6 col-lg-1 mx-auto mt-3">
-            <a class="text-white text-decoration-none" href="#">Términos y condiciones</a>
-          </div>
-          <div class="col-xs-12 col-md-6 col-lg-1 mx-auto mt-3">
-            <a class="text-white text-decoration-none" href="#">Privacidad</a>
-          </div>
-          <div class="col-xs-12 col-md-6 col-lg-1 mx-auto mt-3">
-            <a class="text-white text-decoration-none" href="#">Estudiantes</a>
-          </div>
-        </div>
-        <hr class="mb-4">
-        <div class="row align-items-center">
-          <div class="col-md-7 col-lg-8">
-            <p>Copyright ©2022 Todos los derechos reservados</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <?php
+      include("footer.php");
+    ?>
     <script>
 
       //Valida que los campos del formulario estén cargados
